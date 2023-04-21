@@ -1,6 +1,10 @@
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
+from rest_framework import status
+from rest_framework.response import Response
+
 UserModel = get_user_model()
+
 
 def custom_validation(data):
     email = data['email'].strip()
@@ -8,7 +12,8 @@ def custom_validation(data):
     password = data['password'].strip()
     ##
     if not email or UserModel.objects.filter(email=email).exists():
-        raise ValidationError('choose another email')
+        # return ValidationError('Выберите другой email')
+        Response(status=status.HTTP_400_BAD_REQUEST)
     ##
     if not password or len(password) < 8:
         raise ValidationError('choose another password, min 8 characters')
@@ -24,11 +29,13 @@ def validate_email(data):
         raise ValidationError('an email is needed')
     return True
 
+
 def validate_username(data):
     username = data['username'].strip()
     if not username:
         raise ValidationError('choose another username')
     return True
+
 
 def validate_password(data):
     password = data['password'].strip()
