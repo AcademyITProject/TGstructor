@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 UserModel = get_user_model()
 
@@ -12,15 +13,13 @@ def custom_validation(data):
     password = data['password'].strip()
     ##
     if not email or UserModel.objects.filter(email=email).exists():
-        # return ValidationError('Выберите другой email')
-        Response(status=status.HTTP_400_BAD_REQUEST)
+        raise ValidationError('Выберите другой email')
     ##
     if not password or len(password) < 8:
         raise ValidationError('choose another password, min 8 characters')
     ##
     if not username:
         raise ValidationError('choose another username')
-    return data
 
 
 def validate_email(data):
