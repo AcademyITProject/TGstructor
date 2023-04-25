@@ -39,3 +39,15 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+
+class AppBot(models.Model):
+    login_id = models.IntegerField(primary_key=True)
+    app_name = models.CharField(max_length=512)
+    token = models.CharField(max_length=512)
+    url = models.CharField(max_length=512)
+    name = models.CharField(max_length=255)
+    launch_status = models.BooleanField(default=0)
+
+    def __str__(self):
+        return self.name
