@@ -56,5 +56,5 @@ class UserView(APIView):
         return Response({'user': serializer.data}, status=status.HTTP_200_OK)
 
 
-class BotCreateView(APIView):
+class BotCreateView(generics.CreateAPIView):
     serializer_class = BotDetailSerializer
