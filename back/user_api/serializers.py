@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model, authenticate
 
+from user_api.models import AppBot
+
 UserModel = get_user_model()
 
 
@@ -32,3 +34,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         fields = ('email', 'username')
+
+
+class BotDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppBot
+        fields = '__all__'  # Все поля сериализуем(работаем с ними)

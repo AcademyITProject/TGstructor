@@ -42,12 +42,12 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
 
 
 class AppBot(models.Model):
-    login_id = models.IntegerField(primary_key=True)
-    app_name = models.CharField(max_length=512)
-    token = models.CharField(max_length=512)
-    url = models.CharField(max_length=512)
-    name = models.CharField(max_length=255)
-    launch_status = models.BooleanField(default=0)
+    login_id = models.ForeignKey(AppUser, verbose_name='Login id', on_delete=models.CASCADE)
+    app_name = models.CharField(verbose_name='App name', max_length=512)
+    token = models.CharField(verbose_name='token', max_length=512)
+    url = models.CharField(verbose_name='Url', max_length=512)
+    name = models.CharField(verbose_name='Name', max_length=255)
+    launch_status = models.BooleanField(verbose_name='Status', default=0)
 
     def __str__(self):
         return self.name
