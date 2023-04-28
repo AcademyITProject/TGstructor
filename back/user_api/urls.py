@@ -8,5 +8,7 @@ urlpatterns = [
     path('logout', views.UserLogout.as_view(), name='logout'),
     path('user', views.UserView.as_view(), name='user'),
 
-    path('bots', BotCreateView.as_view())
+    path('bot/create', BotCreateView.as_view()),
+    path('bot/all', BotsListView.as_view()),
+    path('bot/detail/<int:pk>', BotDetailView.as_view()),
 ]

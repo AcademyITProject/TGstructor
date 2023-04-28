@@ -3,9 +3,11 @@ from django.contrib.auth import get_user_model, login, logout
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserRegisterSerializer, UserLoginSerializer, UserSerializer, BotDetailSerializer
+from .serializers import UserRegisterSerializer, UserLoginSerializer, UserSerializer, BotDetailSerializer, \
+    BotsListSerializer
 from rest_framework import permissions, status, generics
 from .validations import custom_validation, validate_email, validate_password
+from .models import AppBot
 
 
 class UserRegister(APIView):
@@ -58,3 +60,13 @@ class UserView(APIView):
 
 class BotCreateView(generics.CreateAPIView):
     serializer_class = BotDetailSerializer
+
+
+class BotsListView(generics.ListAPIView):
+    serializer_class = BotsListSerializer
+    queryset = AppBot.objects.all()
+
+
+class BotDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = BotDetailSerializer
+    queryset = AppBot.objects.all()

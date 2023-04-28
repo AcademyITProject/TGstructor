@@ -40,3 +40,9 @@ class BotDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = AppBot
         fields = '__all__'  # Все поля сериализуем(работаем с ними)
+
+
+class BotsListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppBot
+        fields = ('app_name', 'token', 'url', 'name', 'launch_status', 'login_id')
