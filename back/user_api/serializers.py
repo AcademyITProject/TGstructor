@@ -37,6 +37,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class BotDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = AppBot
         fields = '__all__'  # Все поля сериализуем(работаем с ними)

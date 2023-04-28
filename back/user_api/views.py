@@ -8,6 +8,8 @@ from .serializers import UserRegisterSerializer, UserLoginSerializer, UserSerial
 from rest_framework import permissions, status, generics
 from .validations import custom_validation, validate_email, validate_password
 from .models import AppBot
+from .permissions import IsOwnerOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 
 class UserRegister(APIView):
@@ -65,8 +67,10 @@ class BotCreateView(generics.CreateAPIView):
 class BotsListView(generics.ListAPIView):
     serializer_class = BotsListSerializer
     queryset = AppBot.objects.all()
+    permission_classes = (IsAuthenticated,)
 
 
 class BotDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BotDetailSerializer
     queryset = AppBot.objects.all()
+    permissions_classes = (IsOwnerOrReadOnly, IsAuthenticated)
