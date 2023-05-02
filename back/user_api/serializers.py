@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model, authenticate
 
-from user_api.models import AppBot
+from user_api.models import *
 
 UserModel = get_user_model()
 
@@ -37,7 +37,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class BotDetailSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    #    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = AppBot
@@ -48,3 +48,27 @@ class BotsListSerializer(serializers.ModelSerializer):
     class Meta:
         model = AppBot
         fields = ('app_name', 'token', 'url', 'name', 'launch_status', 'login_id')
+
+
+class CommandDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Commands
+        fields = '__all__'
+
+
+class CommandsListView(serializers.ModelSerializer):
+    class Meta:
+        model = AppBot
+        fields = ('bot_id', 'command_name', 'type_id', 'link_status', 'media_status')
+
+
+class CommandLinkDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LinkCommands
+        fields = '__all__'
+
+
+class CommandsLinkListView(serializers.ModelSerializer):
+    class Meta:
+        model = LinkCommands
+        fields = ('current_command', 'following_command')

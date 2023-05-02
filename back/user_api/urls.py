@@ -13,4 +13,15 @@ urlpatterns = [
     path('bot/create', BotCreateView.as_view()),
     path('bot/all', BotsListView.as_view()),
     path('bot/detail/<int:pk>', BotDetailView.as_view()),
+
+    path('command/create', CommandCreateView.as_view()),
+    path('command/all', CommandsListView.as_view()),
+    path('command/detail/<int:pk>', CommandDetailView.as_view()),
+
+    path('command/link/create', CommandLinkCreateView.as_view()),
+    path('command/link/all', CommandsLinkListView.as_view()),
+    path('command/link/detail/<int:pk>', CommandLinkDetailView.as_view()),
+
+    path('auth/', include('djoser.urls')),
+    path('auth_token/', include('djoser.urls.authtoken')),
 ]

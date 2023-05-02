@@ -3,13 +3,12 @@ from django.contrib.auth import get_user_model, login, logout
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserRegisterSerializer, UserLoginSerializer, UserSerializer, BotDetailSerializer, \
-    BotsListSerializer
+from .serializers import *
 from rest_framework import permissions, status, generics
 from .validations import custom_validation, validate_email, validate_password
 from .models import AppBot
 from .permissions import IsOwnerOrReadOnly
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 
 class UserRegister(APIView):
@@ -67,10 +66,42 @@ class BotCreateView(generics.CreateAPIView):
 class BotsListView(generics.ListAPIView):
     serializer_class = BotsListSerializer
     queryset = AppBot.objects.all()
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, IsAdminUser)
 
 
 class BotDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BotDetailSerializer
     queryset = AppBot.objects.all()
+    permissions_classes = (IsOwnerOrReadOnly, IsAuthenticated)
+
+
+class CommandCreateView(generics.CreateAPIView):
+    serializer_class = CommandDetailSerializer
+
+
+class CommandsListView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CommandsListView
+    queryset = Commands.objects.all()
+    permission_classes = (IsAuthenticated, IsAdminUser)
+
+
+class CommandDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CommandDetailSerializer
+    queryset = Commands.objects.all()
+    permissions_classes = (IsOwnerOrReadOnly, IsAuthenticated)
+
+
+class CommandLinkCreateView(generics.CreateAPIView):
+    serializer_class = CommandLinkDetailSerializer
+
+
+class CommandsLinkListView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CommandsLinkListView
+    queryset = LinkCommands.objects.all()
+    permission_classes = (IsAuthenticated, IsAdminUser)
+
+
+class CommandLinkDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CommandLinkDetailSerializer
+    queryset = LinkCommands.objects.all()
     permissions_classes = (IsOwnerOrReadOnly, IsAuthenticated)

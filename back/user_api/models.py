@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from datetime import datetime
 
 
 class AppUserManager(BaseUserManager):
@@ -51,3 +52,38 @@ class AppBot(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TypesCommand(models.Model):
+    type_name = models.CharField(verbose_name='name', max_length=512)
+
+
+class Commands(models.Model):
+    bot_id = models.ForeignKey(AppBot, verbose_name='bot_id', on_delete=models.CASCADE)
+    command_name = models.CharField(verbose_name='name', max_length=512)
+    type_id = models.ForeignKey(TypesCommand, verbose_name="type_id", on_delete=models.CASCADE)
+    link_status = models.BooleanField(verbose_name='link_status', default=0)
+    media_status = models.BooleanField(verbose_name='media_status', default=0)
+
+
+class LinkCommands(models.Model):
+    current_command = models.ForeignKey(Commands, verbose_name='curCmd', related_name='linkcommands_current',
+                                        on_delete=models.CASCADE)
+    following_command = models.ForeignKey(Commands, verbose_name='flwCmd', related_name='linkcommands_following',
+                                          on_delete=models.CASCADE)
+
+
+class Media(models.Model):
+    command_id = models.ForeignKey(Commands, verbose_name='cmdId', on_delete=models.CASCADE)
+    media = models.TextField(verbose_name="media")
+
+
+class QuestionCommand(models.Model):
+    command_id = models.ForeignKey(Commands, verbose_name='cmdId', on_delete=models.CASCADE)
+    answer = models.TextField(verbose_name="answer")
+
+
+class MailCommand(models.Model):
+    command_id = models.ForeignKey(Commands, verbose_name='cmdId', on_delete=models.CASCADE)
+    mail = models.TextField(verbose_name="mail")
+    date = models.DateField(default=datetime.now)
