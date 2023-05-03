@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3adfe424-89db-4875-bef0-8f85f106de87" name="Changes" comment="Add BD">
+      <change beforePath="$PROJECT_DIR$/apiv2/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/back/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/back/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/middleware/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/middleware/corsMiddleware.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/permissions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/validations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_api/views.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OjZSl4UciniKWlpiWShLOHbrc0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/mihee/PycharmProjects/project/TGstructor/back/api",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite",
+      "sqlserver.localdb",
+      "sqlserver"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mihee\PycharmProjects\project\TGstructor\back\api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mihee\PycharmProjects\project\TGstructor\back\api" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.Django Server">
+    <configuration name="Django Server" type="Python.DjangoServer" factoryName="Django server">
+      <module name="back" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="back.settings" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mihee\AppData\Local\Programs\Python\Python311\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
+      <module name="back" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="back.settings" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mihee\PycharmProjects\project\backv2\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11 (backv2)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django Server.Django Server" />
+      <item itemvalue="Django Server.Unnamed" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3adfe424-89db-4875-bef0-8f85f106de87" name="Changes" comment="" />
+      <created>1682075953502</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682075953502</updated>
+      <workItem from="1682075954493" duration="36000" />
+      <workItem from="1682076003609" duration="90000" />
+      <workItem from="1682076104979" duration="193000" />
+      <workItem from="1682076310122" duration="353000" />
+      <workItem from="1682076688425" duration="7297000" />
+      <workItem from="1682326050816" duration="1062000" />
+      <workItem from="1682327136800" duration="25000" />
+      <workItem from="1682428256358" duration="10337000" />
+      <workItem from="1682598673806" duration="16709000" />
+      <workItem from="1682699701396" duration="2001000" />
+      <workItem from="1683030421726" duration="3201000" />
+      <workItem from="1683052384938" duration="748000" />
+      <workItem from="1683133698913" duration="7039000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add gitignore">
+      <created>1682077814802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682077814802</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add gitignore">
+      <created>1682077931058</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682077931058</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add gitignore">
+      <created>1682077967125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682077967125</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Валидация почты">
+      <created>1682080696311</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682080696311</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Исправлен метод регистации суперпользователя через терминал (python manage.py createsuperuser), добавлена страничка App users в админке">
+      <created>1682431669613</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682431669613</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Добавлена табличка с ботами">
+      <created>1682435702266</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682435702266</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Добавлен обработчик ботов">
+      <created>1682605005755</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682605005755</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Добавлен обработчик ботов">
+      <created>1682610228643</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682610228643</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add Bot API">
+      <created>1682683875754</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682683875754</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add Bot API add permission IsAuthenticated">
+      <created>1682686585522</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682686585522</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add BD">
+      <created>1683052536267</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683052536267</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add gitignore" />
+    <MESSAGE value="Валидация почты" />
+    <MESSAGE value="Исправлен метод регистации суперпользователя через терминал (python manage.py createsuperuser), добавлена страничка App users в админке" />
+    <MESSAGE value="Добавлена табличка с ботами" />
+    <MESSAGE value="Добавлен обработчик ботов" />
+    <MESSAGE value="Add Bot API" />
+    <MESSAGE value="Add Bot API add permission IsAuthenticated" />
+    <MESSAGE value="Add BD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add BD" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
