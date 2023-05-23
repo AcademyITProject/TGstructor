@@ -7,10 +7,10 @@ class BotList extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            bot_name: ''
+            bot_name: '',
+            error: ''
         }
         this.onClickBot = this.props.onClickBot.bind(this);
-        
     }
     bots = this.props.bots;
     onClickBot(id){
@@ -23,15 +23,14 @@ class BotList extends React.Component{
         this.props.onDeleteBot(id);
     }
 
-    onCreateBot = () => {
-
+    newBot = () => {
+        if(this.state.bot_name !== ''){
+            this.props.onNewBot(this.state.bot_name)
+            this.setState({error: ''})
+        }else
+            this.setState({error: 'Введите имя бота'})
     }
 
-    onChangeNewBotName = (event) => {
-        this.setState({
-            bot_name: event.target.value
-        })
-    }
 
     
     render(){
@@ -41,14 +40,17 @@ class BotList extends React.Component{
                     <div className='header-bot-list'>
                         <p className='text-2'>Ваши чат-боты</p>
                         <div className='add-bot-field'>
-                            <input className='text-3' type='text' placeholder='Введите название чат-бота' value={this.state.bot_name} onChange={this.onChangeNewBotName}/>
-                            <button onClick={() => this.props.onCreateBot(this.state.bot_name)}>
+                        <div className='bot-name-field'>
+                            <input className='text-3' type='text' placeholder='Введите название чат-бота' value={this.state.bot_name} onChange={e => this.setState({bot_name: e.target.value})}/>
+                            <p className='error-name-newbot text-4'>{this.state.error}</p>
+                        </div>
+                            <button className="add-bot-button" onClick={() => this.newBot()}>
                                 <img src={plusIcon} alt='Действия'/>
                                 <p className="text-3">Создать бота</p>
                             </button>
                         </div>
                     </div>
-                    {this.bots.map((el) => (<div key={el.id} style={{margin: "0px", width: "100%"}}> 
+                    {this.bots.map((el) => (<div className='bot-field' key={el.id}> 
                         <Bot onDelete={this.onDelete} onClickStatus={this.onClickStatus} onClickBot={this.onClickBot} bot={el} number={this.bots.indexOf(el) + 1}/>
                     </div>))}
                 </div>
