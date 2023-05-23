@@ -34,8 +34,6 @@ class ModalAuthorization extends Component {
     
       handleSubmit = (event) => {
         event.preventDefault();
-        // здесь можно добавить логику отправки формы на сервер
-        console.log(this.state);
       };
 
       userAuthorization = () => {
@@ -65,7 +63,6 @@ class ModalAuthorization extends Component {
             this.props.onAuthorization(this.state.name, res.data.auth_token, res.data.id)
           })
           .catch(err => {
-            console.log(err)
             this.deleteError()
             this.setState({
               isLoaded: false,
@@ -108,6 +105,7 @@ class ModalAuthorization extends Component {
                     className='label'
                     value={this.state.name}
                     onChange={this.handleInputChange}
+                    autoComplete="off"
                   />
                 
                 <p className='text-4' 
@@ -122,6 +120,7 @@ class ModalAuthorization extends Component {
                     className='label'
                     value={this.state.password}
                     onChange={this.handleInputChange}
+                    autoComplete="off"
                   />
                 {/* <button onClick={ ()=> this.props.onOpenModal()}>sfvd</button> */}
                 <p className='text-4' 
@@ -129,7 +128,7 @@ class ModalAuthorization extends Component {
                   {this.state.incor_pass && 'Заполните поле'}
                   {this.state.error}
                 </p>
-                <button type="button" className='button text-2' style={{fontSize: '20px', width: '80%'}}  onClick={() => this.userAuthorization()}>Войти</button>
+                <button type="button" className='button-auth-reg text-2' style={{fontSize: '20px', width: '80%'}}  onClick={() => this.userAuthorization()}>Войти</button>
                 <br/>
                 <br/>
                 <div style={{display: 'flex',width: '340px',margin: '0px', justifyContent: 'space-between', alignItems: 'center'}}><p>Нет аккаунта?</p><p style={{cursor: 'pointer', color: 'orange'}} onClick={ ()=> this.props.onOpenModal()}>Зарегистрируйтесь</p></div>

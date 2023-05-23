@@ -34,7 +34,8 @@ export function Message(props){
     const FindCallsOfBot = () => {
         let calls = [];
         bot.commands.map((cmd) => {
-            cmd.call.map((call) => {
+            let cmd_index = bot.commands.findIndex(x => x.id === cmd.id)
+            bot.commands[cmd_index].call.map((call) => {
                 calls.push(call.command_call)
             })
         })
@@ -206,7 +207,6 @@ export function Message(props){
                 type: e.target.files[0].type,
                 file: base64
             }
-            console.log(files)
             setMedia([...files])
         }
       };
@@ -253,7 +253,6 @@ export function Message(props){
                     </div>
                     
                     <div className='message-text'><p className='text-5-gray'>{bot.message_commands[message_index].message !== "" ? bot.message_commands[message_index].message : "Пустой блок"}</p></div>
-                    {console.log(JSON.stringify(bot.message_commands[message_index].message))}
                 </div>
                 <a href="#" title="Добавить" onClick={e => e.stopPropagation()} className="add-message-button"><img src={plusIcon} alt="Добавить" onClick={() => addBlock()}/></a>
             </div>
@@ -309,7 +308,7 @@ export function Message(props){
                 setActive={setModalActive}>
                 <div className='modal-head'>
                     <p className='text-2'>Сообщение</p> 
-                    <a href='#' onClick={() => {
+                    <a href='#' style={{paddingRight: '20px'}} onClick={() => {
                         setName(bot.message_commands[message_index].name);
                         setMessage(bot.message_commands[message_index].message);
                         setCalls(FindCallCommand(command_index));
@@ -320,7 +319,7 @@ export function Message(props){
                         setModalActive(false);
                     }}><img src={exitIcon} alt='Закрыть'/></a>
                 </div>
-                <hr/>
+                <hr style={{width: 'calc(100% - 20px)'}}/>
                 <form className='modal-form text-3'>
                     <label htmlFor='name'>Название команды</label>
                     <input 
@@ -330,6 +329,7 @@ export function Message(props){
                         placeholder='Введите название команды' 
                         onChange={e => {setName(e.target.value)}}
                         value={name}
+                        autoComplete="off"
                         />
                     <label htmlFor='message'>Сообщение</label>
                     <textarea 
@@ -339,6 +339,7 @@ export function Message(props){
                         placeholder='Введите сообщение' 
                         onChange={e => setMessage(e.target.value)}
                         value={message}
+                        autoComplete="off"
                         />
                     
                     <label htmlFor='call'><p style={{marginTop: '0px', marginBottom: '3px'}}>Команды вызова</p></label>
@@ -354,6 +355,7 @@ export function Message(props){
                             placeholder='Введите команду вызова'
                             value={new_call}
                             onChange={e => setNewCalls(e.target.value)}
+                            autoComplete="off"
                             />
                         <div className='add-call' style={{cursor: 'pointer'}}>
                             <img src={plusBlackIcon} onClick={() => onAddCall()} alt='Добавить'/>

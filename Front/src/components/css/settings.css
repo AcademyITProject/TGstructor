@@ -2,22 +2,36 @@
 
 .inputData{
     background-color: #ffffff;
-    color: rgb(255, 255, 255);
+    color: #000000;
     border: 1px solid #939393;
-    width: 50%;
+    min-width: 350px;
+    max-width: 500px;
     border-radius: 5px;
     text-align: left;
     padding: 10px;
     margin-bottom: 16px;
 }
-.button{
+.inputData-block{
+    background-color: #efefef;
+    color: #000000;
+    border: 1px solid #939393;
+    min-width: 350px;
+    max-width: 500px;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+.button-settings{
     /* padding: 10px 20px; */
     background-color: #FF941A;
     border: 1px solid #FF941A;
     border-radius: 4px;
+    color: #FFFFFF;
+    padding: 5px 10px;
     /* margin: 0 10px; */
     cursor: pointer;
-    width: 15%;
+    width: auto;
     font-family: 'Formular';
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -29,10 +43,8 @@
     height: 80vh;
     margin: 0px;
 }
-.inputForm{
-    padding: 10px;
-}
 
 .inputForm p{
     margin: 0px;
+    padding: 0px
 }
