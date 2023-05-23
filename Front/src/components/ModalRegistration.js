@@ -22,7 +22,8 @@ class ModalRegistration extends Component {
           incor_name: false,
           incor_email: false,
           incor_pass: false,
-          incor_onfPass: false
+          incor_onfPass: false,
+          succes: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,38 +66,39 @@ class ModalRegistration extends Component {
               password: this.state.password
             }
           }).then((res) => {
-            console.log(res)
-            console.log('-----')
             this.deleteError()
             this.setState({
               isLoaded: false,
-              error: 'Регистрация прошла успешно'
+              succes: 'Регистрация прошла успешно'
             })
           }).catch(err => {
-            console.log(err)
             if (err.response.data.email !== undefined){
               this.deleteError()
               this.setState({
                 isLoaded: false,
-                error: 'Пользователь с такой почтой уже зарегистрирован'
+                error: 'Пользователь с такой почтой уже зарегистрирован',
+                succes: ''
               })
             }else if (err.response.data.username !== undefined){
               this.deleteError()
               this.setState({
                 isLoaded: false,
-                error: 'Имя неверно'
+                error: 'Имя неверно',
+                succes: ''
               })
             }else if (err.response.data.password !== undefined){
               this.deleteError()
               this.setState({
                 isLoaded: false,
-                error: 'Пароль слишком простой'
+                error: 'Пароль слишком простой',
+                succes: ''
               })
             }else{
               this.deleteError()
               this.setState({
                 isLoaded: false,
-                error: 'Что-то пошло не так'
+                error: 'Что-то пошло не так',
+                succes: ''
               })
             }
             })
@@ -138,6 +140,7 @@ class ModalRegistration extends Component {
                     value={this.state.name}
                     className='label'
                     onChange={this.handleInputChange}
+                    autoComplete="off"
                   />
                 
                   <p className='text-4' 
@@ -152,6 +155,7 @@ class ModalRegistration extends Component {
                     className='label'
                     value={this.state.email}
                     onChange={this.handleInputChange}
+                    autoComplete="off"
                   />
 
                   <p className='text-4' 
@@ -166,6 +170,7 @@ class ModalRegistration extends Component {
                     className='label'
                     value={this.state.password}
                     onChange={this.handleInputChange}
+                    autoComplete="off"
                   />
 
                   <p className='text-4' 
@@ -180,6 +185,7 @@ class ModalRegistration extends Component {
                     placeholder='Подтвердите пароль'
                     value={this.state.confirmPassword}
                     onChange={this.handleInputChange}
+                    autoComplete="off"
                   />
         
                   <p className='text-4' 
@@ -188,8 +194,12 @@ class ModalRegistration extends Component {
                     {this.state.error}
                   </p>
                 
-                <button type="button" className='button text-2' style={{fontSize: '20px', width: '80%'}} onClick={() => this.userRegistration()}>Зарегестрироваться</button>
+                <button type="button" className='button-auth-reg text-2' style={{fontSize: '20px', width: '80%'}} onClick={() => this.userRegistration()}>Зарегестрироваться</button>
                 <br/>
+                <p className='text-4' 
+                    style={{display: 'flex',width: '340px', height: '15px', margin: '0px', marginBottom: '5px', justifyContent: 'center', alignItems: 'center', color: 'green'}}>
+                    {this.state.succes}
+                </p>
                 <br/>
                 <div style={{display: 'flex',width: '340px',margin: '0px', justifyContent: 'space-between', alignItems: 'center'}}>Уже зарегестрированы? <p style={{cursor: 'pointer', color: 'orange'}} onClick={ ()=> this.props.onOpenModal()}>Войти</p></div>
               </form>

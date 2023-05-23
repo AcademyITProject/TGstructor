@@ -6,16 +6,10 @@ function CallList(props){
     var original_call = call;
 
     const onDelete = (orig_call) => {
-        console.log("я вызываюсь")
         props.onDeleteCall(orig_call)
     }
 
     const onChange = (event) => {
-        
-        
-        console.log("я вызываюсь")
-        console.log(original_call)
-        console.log(event.target.value)
         props.onChangeCall(original_call, event.target.value)
         original_call = event.target.value
         setCall(event.target.value)

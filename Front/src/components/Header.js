@@ -54,6 +54,7 @@ class Header extends Component {
     }else if (this.props.page === "bot-list"){
       return (
         <header className='header'>
+        {console.log(this.state.user)}
         <img src={logo} className='logo'/>
         <div className='button-container'>{/* контейнер с элементами в правой части шапки */}
           <img src={userIcon}  style={{margin: '0px'}} className='userIcon'/>
@@ -99,6 +100,15 @@ class Header extends Component {
           <img src={logo} className='logo'/>
           <img className='prev-page' src={arrowIcon} onClick={() => this.props.onChangePage('bot-list')}/>
           <p className='text-2-gray'>Создание бота</p>
+        </div>
+      </header>
+      )
+    }else if (this.props.page === "load") {
+      return(
+        <header className='header' style={{}}>
+        {this.state.isOpen = false}
+        <div style={{display: 'flex', height: '100%', width: 'auto'}}>
+          <img src={logo} className='logo'/>
         </div>
       </header>
       )

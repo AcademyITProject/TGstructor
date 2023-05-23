@@ -19,7 +19,8 @@ constructor(props){
         bot: props.bot,
         start_commands: this.FindStartCommands(props.bot),
         change_container: [JSON.parse(JSON.stringify(props.bot))],
-        index: 0
+        index: 0,
+        bot_name: props.bot.name
     }
 }
 
@@ -60,7 +61,7 @@ RollForwardBot = () => {
 }
 
 addNewBlock = () => {
-    let bot = JSON.parse(JSON.stringify(this.state.bot));
+    let bot = this.state.bot;
     if (this.props.active_button === "mail"){
         let guid = bot.id + Guid.newGuid()
         bot.commands.push({
@@ -104,13 +105,13 @@ addNewBlock = () => {
 }
 
 addStartBlock = () => {
-    let bot = JSON.parse(JSON.stringify(this.state.bot));
+    let bot = this.state.bot;
     if (this.props.active_button === "message"){
         let guid = bot.id + Guid.newGuid()
         bot.commands.push({
             id: guid,
             type: "message",
-            call: [{id: 0, command_call: "/start"}],
+            call: [{id: Guid.newGuid(), command_call: "/start"}],
             link: []
         });
         bot.message_commands.push({
@@ -119,7 +120,6 @@ addStartBlock = () => {
             message: "",
             media: []
         })
-        console.log("работаем")
         this.FixationChange(bot);
         this.setState({
             bot: bot,
@@ -129,17 +129,21 @@ addStartBlock = () => {
 }
 
 SaveBot = () => {
-    this.props.onChangeBot(JSON.parse(JSON.stringify(this.state.bot)))
+    let bot = this.state.bot;
+    bot.name = this.state.bot_name;
+    this.props.onChangeBot(bot)
 }
 
 FindFollowLinksCommands(bot){
     let commands = [];
-        bot.commands.map((command) => {
-            if (command !== null && command.link !== null)
-                command.link.map((link) => {
-                    !commands.includes(link) && commands.push(link)
-                });
-        });
+    bot.commands.map((command) => {
+        let cmd_index = bot.commands.findIndex(x => x.id === command.id)
+        
+        if (command !== null && command.link.length !== 0)
+        command.link.map((link) => {
+                !commands.includes(link) && commands.push(link)
+            });
+    });
         
     return commands;
 }
@@ -151,9 +155,10 @@ FindStartCommands(bot){
 FindStartCommand(bot){
     let index = null;
     bot.commands.map((cmd) => {
+        let cmd_index = bot.commands.findIndex(x => x.id === cmd.id)
         cmd.call.map((call) => {
             if (call.command_call === "/start"){
-                index =  bot.commands.findIndex(x => x.id === cmd.id)
+                index =  cmd_index
             }
         })
     })
@@ -161,10 +166,13 @@ FindStartCommand(bot){
 }
 
 
+
     render(){
+        console.log("1")
         return(
             <div className="constructor-block">
                 <div className='start-block'>
+                    <input autoComplete="off" className='name-bot-input text-2-gray' value={this.state.bot_name} onChange={e => this.setState({bot_name: e.target.value})}></input>
                     <p className='text-3'>Старт</p>
                 </div>
                 {this.FindStartCommand(this.state.bot) !== null &&
@@ -192,7 +200,7 @@ FindStartCommand(bot){
                             <h2 className='text-2'>Начало нового блока</h2>
                             <Message 
                                 onChangeBot={this.Change} 
-                                bot={JSON.parse(JSON.stringify(this.state.bot))} 
+                                bot={this.state.bot}
                                 id={cmd.id} 
                                 start_block={true} 
                                 active_button={this.props.active_button}
@@ -208,7 +216,7 @@ FindStartCommand(bot){
                             <h2 className='text-2'>Начало нового блока</h2>
                             <Message 
                                 onChangeBot={this.Change} 
-                                bot={JSON.parse(JSON.stringify(this.state.bot))} 
+                                bot={this.state.bot} 
                                 id={cmd.id} 
                                 start_block={true} 
                                 active_button={this.props.active_button}

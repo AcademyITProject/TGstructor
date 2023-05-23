@@ -7,8 +7,13 @@ class Settings extends Component {
     super(props);
 
     this.state = {
-      clickSettings: false
+      clickSettings: false,
+      user: {
+        name: props.user.name,
+        email: props.user.email
+      }
     };
+    console.log(this.state.user)
 
   }
 
@@ -27,16 +32,17 @@ class Settings extends Component {
             <div className='block'>
                 <input formMethod='Post' className='input' placeholder='Имя'/>
             </div> */}
-            <form className='inputForm'>
-              <p className='text-3'>Email</p>
-              <input className='inputData text-3' placeholder='Email'/>
+            <div className='inputForm'>
+              <p className='text-3'>Почта</p>
+              {    console.log(this.state.user)}
+              <input className='inputData-block text-3' type="text" name="email-input-settings" placeholder='Email' value={this.state.user.email} readOnly={true}/>
               <p className='text-3'>Логин</p>
-              <input className='inputData text-3' placeholder='Логин'/>
+              <input className='inputData-block text-3' type="text" name="name-input-settings" placeholder='Логин' value={this.state.user.name} readOnly={true}/>
               <p className='text-3'>Пароль</p>
-              <input className='inputData text-3' placeholder='Пароль'/><br/>
+              <input className='inputData text-3' type="password" autoComplete="off" placeholder='Пароль' defaultValue=""/><br/>
               
-            </form>
-            <button className='button text-2'>Сохранить</button>
+            </div>
+            <button className='button-settings text-2'>Сохранить</button>
             
         </div>
     );
