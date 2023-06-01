@@ -34,7 +34,7 @@
     width: calc(100% - 200px);
     margin-bottom: 20px;
     display: block;
-    align-items: start;
+    align-items: flex-start;
     height: 95px;
 }
 
