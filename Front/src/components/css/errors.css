@@ -1,6 +1,6 @@
 .error-message{
     display:flex;
-    align-items: flex-start;
+    align-items: start;
     margin-bottom: 10px;
 }
 

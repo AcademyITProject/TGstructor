@@ -330,19 +330,19 @@ class App extends React.Component{
           
           bots[index].commands[cmd_index].link = [];
           bots[index].commands[cmd_index].call = [];
-          cmd.calls.map((call) => (
+          cmd.calls.map((call) => {
             bots[index].commands[cmd_index].call.push({
               id: call.id,
               command_call: call.name
-            })
-          ))
+            });
+          })
           delete bots[index].commands[cmd_index].calls
 
-          cmd.links.map((link) => (
+          cmd.links.map((link) => {
             link.follow.map((follow) => {
               bots[index].commands[cmd_index].link.push(follow);
             })
-          ))
+          })
           delete bots[index].commands[cmd_index].links
 
           
@@ -353,10 +353,8 @@ class App extends React.Component{
           }
           delete bots[index].commands[cmd_index].type_id
           cmd_index++;
-          return 
         })
         index++;
-        return 
       })
     }
     return bots
@@ -559,13 +557,11 @@ class App extends React.Component{
                   let link_index = bot.commands[cmd_in_index].link.findIndex(x => x === link);
                   if(link === cmd.id)
                     bot.commands[cmd_in_index].link[link_index] = resс.data.id;
-                  return
                 })
                 if(cmd_index === bot.commands.length - 1 && cmd_in_index === bot.commands.length - 1)
                   setTimeout(() => {
                     resolve("good");
                   }, 1000)
-                return
               })
       
               bot.message_commands.map((msg_cmd) => {
@@ -598,7 +594,6 @@ class App extends React.Component{
                       }
                     })
                 }
-                return
               })
       
               bot.mail_commands.map((ml_cmd) => {
@@ -632,17 +627,17 @@ class App extends React.Component{
                       }
                     })
                 }
-                return
               })
               
               bot.commands[cmd_index].id = resс.data.id;
             })
-            return 
+            
           })
         })
         promise.then(result => {
           let promise1 = new Promise((resolve, reject) => {
             let cmd_index = 0;
+            let call_index = 0;
 
             bot.commands.map((cmd) => {
               cmd_index = bot.commands.findIndex(x => x.id === cmd.id);
@@ -658,7 +653,7 @@ class App extends React.Component{
                     "Authorization": readCookie('Authorization')
                   }
                 })
-              cmd.call.map((call) => (
+              cmd.call.map((call) => {
                 axios({
                   method: 'post',
                   url: 'http://127.0.0.1:8000/api/command/call/create',
@@ -670,15 +665,14 @@ class App extends React.Component{
                     "Authorization": readCookie('Authorization')
                   }
                 })
-              ))
+              })
               if (cmd_index === bot.commands.length - 1)
               setTimeout(() => {
                 resolve("good");
               }, 1000)
-              return
             })
         
-            bot.chat.map((chat) => (
+            bot.chat.map((chat) => {
               axios({
                 method: 'post',
                 url: 'http://127.0.0.1:8000/api/botChat/create',
@@ -690,7 +684,7 @@ class App extends React.Component{
                   "Authorization": readCookie('Authorization')
                 }
               })
-            ))
+            })
           })
           promise1.then((result) => {
           this.setState({

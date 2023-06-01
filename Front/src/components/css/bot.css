@@ -45,7 +45,7 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: end;
     padding: 4px 6px;
     height: 25px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -101,7 +101,7 @@
   .status-bot{
     margin: 0px;
     width: 25%;
-    align-content: flex-end;
+    align-content: end;
     float: right;
     justify-content: right;
   }
